@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.Sala_de_Juegos;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
