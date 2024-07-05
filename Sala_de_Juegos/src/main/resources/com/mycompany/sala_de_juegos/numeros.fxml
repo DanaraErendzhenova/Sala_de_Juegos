@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sala_de_juegos.NumerosController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" onAction="#switchToPrimary" text="Switch to Primary View" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<AnchorPane prefHeight="359.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.adivinafx.PrimaryController">
+   <children>
+      <Text fill="#859396" fontSmoothingType="LCD" layoutX="129.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿?ADIVINA¿?">
+         <font>
+            <Font name="Berlin Sans FB" size="31.0" />
+         </font>
+      </Text>
+      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="90.0" layoutY="71.0" prefHeight="20.0" prefWidth="266.0" text="Escribe número entre el 1 y el 100!!" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numerointroducido" layoutX="92.0" layoutY="119.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fx:id="pista" layoutX="90.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aquí te daré una pista" wrappingWidth="348.0284194946289">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+         </font></Text>
+      <Button fx:id="button_comprobar" layoutX="90.0" layoutY="254.0" mnemonicParsing="false" onAction="#comprobar" prefHeight="30.0" prefWidth="77.0" text="okey">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="button_volver" layoutX="186.0" layoutY="301.0" mnemonicParsing="false" onAction="#volver" text="Volver al menú" />
+      <Button fx:id="button_rindo" layoutX="179.0" layoutY="254.0" mnemonicParsing="false" onAction="#rindo" prefHeight="30.0" prefWidth="102.0" text="me rindo!!" />
+      <Button fx:id="button_new" layoutX="295.0" layoutY="254.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="30.0" prefWidth="91.0" text="nuevo juego" />
+      <ImageView fitHeight="359.0" fitWidth="196.0" layoutX="439.0">
+         <image>
+            <Image url="@../../../imagenes/numero.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
