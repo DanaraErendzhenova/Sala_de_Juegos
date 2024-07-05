@@ -3,7 +3,6 @@ package com.mycompany.sala_de_juegos;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -18,11 +17,11 @@ import java.net.MalformedURLException;
 public class NumerosController {
     
    //Declaramos las variables sonidos:
-    private final String correcto = "C:\\Users\\Mañanas\\Documents\\NetBeansProjects\\AdivinaFX\\src\\main\\resources\\sonidos\\correct.wav";
-    private final String error = "C:\\Users\\Mañanas\\Documents\\NetBeansProjects\\AdivinaFX\\src\\main\\resources\\sonidos\\error.wav";
-    private final String hehe = "C:\\Users\\Mañanas\\Documents\\NetBeansProjects\\AdivinaFX\\src\\main\\resources\\sonidos\\hehemerindo.wav";
-    private final String newgame = "C:\\Users\\Mañanas\\Documents\\NetBeansProjects\\AdivinaFX\\src\\main\\resources\\sonidos\\newgame.wav";
-    private final String goodbye = "C:\\Users\\Mañanas\\Documents\\NetBeansProjects\\AdivinaFX\\src\\main\\resources\\sonidos\\goodbye.wav";
+    private final String correcto = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\correct.wav";
+    private final String error = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\error.wav";
+    private final String hehe = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\hehemerindo.wav";
+    private final String newgame = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\newgame.wav";
+    private final String goodbye = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\goodbye.wav";
     
     
 
