@@ -20,10 +20,10 @@ public class App extends Application {
     // test test test test test test test test test test test test test test test test
     // holaaaaaaaaaa
     private static Scene scene;
-//sdkmañkjañslcañlskcñalskñalsñalsmcñlam
+
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("start"), 665, 480);
         stage.setScene(scene);
         stage.show();
     }
