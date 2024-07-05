@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sala_de_juegos.StartController">
+   <children>
+      <Button fx:id="button_switchToSERPIENTE" mnemonicParsing="false" onAction="#switchToSERPIENTE" prefHeight="400.0" prefWidth="157.0">
+         <graphic>
+            <ImageView fitHeight="387.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../../../imagenes/snake.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="button_switchToPIANO" mnemonicParsing="false" onAction="#switchToPIANO" prefHeight="400.0" prefWidth="157.0">
+         <graphic>
+            <ImageView fitHeight="387.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../../../imagenes/piano.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="button_switchToX_O" mnemonicParsing="false" onAction="#switchToX_O" prefHeight="400.0" prefWidth="157.0">
+         <graphic>
+            <ImageView fitHeight="387.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../../../imagenes/xo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="button_switchToNUMEROS" mnemonicParsing="false" onAction="#switchToNUMEROS" prefHeight="400.0" prefWidth="157.0">
+         <graphic>
+            <ImageView fitHeight="387.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../../../imagenes/numero.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</HBox>
