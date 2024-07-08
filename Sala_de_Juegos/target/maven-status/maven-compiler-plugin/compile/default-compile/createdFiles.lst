@@ -1,7 +1,11 @@
+com\mycompany\sala_de_juegos\Snake.class
 module-info.class
 com\mycompany\sala_de_juegos\SerpienteController.class
 com\mycompany\sala_de_juegos\StartController.class
 com\mycompany\sala_de_juegos\NumerosController.class
 com\mycompany\sala_de_juegos\PianoController.class
+com\mycompany\sala_de_juegos\Food.class
+com\mycompany\sala_de_juegos\SnakePart.class
+com\mycompany\sala_de_juegos\Game.class
 com\mycompany\sala_de_juegos\x_oController.class
 com\mycompany\sala_de_juegos\App.class

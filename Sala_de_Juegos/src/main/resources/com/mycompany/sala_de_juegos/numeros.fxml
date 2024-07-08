@@ -9,23 +9,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="359.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sala_de_juegos.NumerosController">
+<AnchorPane prefHeight="400.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.sala_de_juegos.NumerosController">
    <children>
-      <Text fill="#859396" fontSmoothingType="LCD" layoutX="129.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿?ADIVINA¿?">
+      <Text fill="#859396" fontSmoothingType="LCD" layoutX="146.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿?ADIVINA¿?">
          <font>
             <Font name="Berlin Sans FB" size="31.0" />
          </font>
       </Text>
-      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="90.0" layoutY="71.0" prefHeight="20.0" prefWidth="266.0" text="Escribe número entre el 1 y el 100!!" textAlignment="JUSTIFY">
+      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="122.0" layoutY="83.0" prefHeight="20.0" prefWidth="224.0" text="Escribe número entre el 1 y el 100!!" textAlignment="JUSTIFY">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="numerointroducido" layoutX="92.0" layoutY="119.0">
+      <TextField fx:id="numerointroducido" layoutX="147.0" layoutY="121.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Text fx:id="pista" layoutX="90.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aquí te daré una pista" wrappingWidth="348.0284194946289">
+      <Text fx:id="pista" layoutX="34.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aquí te daré una pista" textAlignment="CENTER" wrappingWidth="399.2284355163574">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="14.0" />
          </font></Text>
@@ -36,7 +36,7 @@
       <Button fx:id="button_volver" layoutX="186.0" layoutY="301.0" mnemonicParsing="false" onAction="#volver" text="Volver al menú" />
       <Button fx:id="button_rindo" layoutX="179.0" layoutY="254.0" mnemonicParsing="false" onAction="#rindo" prefHeight="30.0" prefWidth="102.0" text="me rindo!!" />
       <Button fx:id="button_new" layoutX="295.0" layoutY="254.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="30.0" prefWidth="91.0" text="nuevo juego" />
-      <ImageView fitHeight="359.0" fitWidth="196.0" layoutX="439.0">
+      <ImageView fitHeight="400.0" fitWidth="216.0" layoutX="451.0">
          <image>
             <Image url="@../../../imagenes/numero.png" />
          </image>

@@ -106,6 +106,8 @@ public class x_oController {
 
     @FXML
     void initialize() {
+        
+     
 
     }
 
