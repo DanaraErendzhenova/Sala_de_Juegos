@@ -106,7 +106,20 @@ public class x_oController {
 
     @FXML
     void initialize() {
-        
+          Alert alert = new Alert(Alert.AlertType.INFORMATION, "Este es el clásico juego de 3 en línea:\n\n" +
+
+"\n- Turnos:\n" +
+"En cada turno, el jugador coloca su símbolo \n"
+                  + "en una casilla vacía del tablero.\n" +
+"\n- Colocación de símbolos:\n" +
+"Los jugadores se turnan colocando sus símbolos\n"
+                  + " en las casillas del tablero.\n" +
+"Solo se puede colocar un símbolo por casilla \n"
+                  + "y no se puede colocar en una casilla ya ocupada.\n" +
+"\n- Línea ganadora:\n" +
+"El primer jugador que coloque tres de sus símbolos \n"
+                  + "en línea recta (horizontal, vertical o diagonal) gana la partida." , ButtonType.OK);
+            alert.showAndWait(); 
      
 
     }

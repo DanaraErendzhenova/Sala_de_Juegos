@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -87,6 +89,13 @@ public class PianoController {
     
     @FXML
     void initialize() {
+        
+         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Adivina la melodía:\n\n" +
+"- Pulsa la tecla \"a jugar\".\n" +
+"- Sonarán tres notas diferentes.\n" +
+"- Pulsa las teclas correspondientes a las notas.\n" +
+"- ¡Adivina cuáles son! " , ButtonType.OK);
+            alert.showAndWait(); 
 
         tecla1.setOnAction(event -> {
             playSound(sonidoDoMenor);

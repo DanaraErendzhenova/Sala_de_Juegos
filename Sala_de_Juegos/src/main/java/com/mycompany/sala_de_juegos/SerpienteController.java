@@ -13,7 +13,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -117,7 +119,18 @@ public class SerpienteController {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
+ @FXML
+    void initialize() {
+          Alert alert = new Alert(Alert.AlertType.INFORMATION, "Utiliza las flechas del teclado para mover la serpiente \n"
+                  + "y hacerla crecer al comer manzanas.\n\n" +
+                    "Evita chocar contra las paredes o \n"
+                  + "contra tu propia cola para no perder.\n\n" +
+                    "Gana puntos al comer manzanas y aumenta \n"
+                  + "tu dificultad al hacer crecer a la serpiente. " , ButtonType.OK);
+            alert.showAndWait(); 
+     
 
+    }
     }
     
     
