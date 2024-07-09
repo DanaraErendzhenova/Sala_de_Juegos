@@ -4,7 +4,11 @@
  */
 package com.mycompany.sala_de_juegos;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -35,7 +39,21 @@ import javafx.util.Duration;
  */
 public class SerpienteController {
  
-    private Game game;
+    public Game game;
+    private final String newgame = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\newgame.wav";
+    private final String goodbye = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\goodbye.wav";
+
+    @FXML
+    private void playSound(String filePath) {
+        try {
+            File file = new File(filePath);
+            String url = file.toURI().toURL().toString();
+            AudioClip audioClip = Applet.newAudioClip(new java.net.URL(url));
+            audioClip.play();
+        } catch (MalformedURLException e) {
+            System.out.println("Error al cargar el archivo de audio: " + e.getMessage());
+        }
+    }
 
     @FXML
     private Canvas canvas;
@@ -62,11 +80,13 @@ public class SerpienteController {
     
     @FXML
     private void exitAction(ActionEvent event) throws IOException {
+        playSound(goodbye);
         App.setRoot("start");
     }
 
     @FXML
     private void newAction(ActionEvent event) {
+        playSound(newgame);
         game = new Game();
         repaint();
     }
