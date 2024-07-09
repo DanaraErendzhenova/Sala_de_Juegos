@@ -12,13 +12,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-// test test test test test test test test test test test test test test test test
-    // test test test test test test test test test test test test test test test test
-    // test test test test test test test test test test test test test test test test
-    // test test test test test test test test test test test test test test test test
-    // test test test test test test test test test test test test test test test test
-    // test test test test test test test test test test test test test test test test
-    // holaaaaaaaaaa
+
     private static Scene scene;
 
     @Override
@@ -42,7 +36,7 @@ public class App extends Application {
     }
 
     
-    ///esto es una prueba en el codigo mio sin subir a GIT
+   
     
     
 }

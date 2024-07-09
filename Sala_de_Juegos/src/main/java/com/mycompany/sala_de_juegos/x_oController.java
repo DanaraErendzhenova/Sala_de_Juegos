@@ -4,8 +4,6 @@
  */
 package com.mycompany.sala_de_juegos;
 
-
-
 import java.io.IOException;
 import javafx.scene.control.Button;
 import java.net.URL;
@@ -15,33 +13,53 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
+import java.applet.*;
+import java.io.File;
+import java.net.MalformedURLException;
 
 /**
  *
  * @author Mañanas
  */
 public class x_oController {
+
     int contador = 0;
     char currentSymbol;
-    private char campo [][] = new char [3] [3];
-    private boolean en_juego =true;
-    
+    private char campo[][] = new char[3][3];
+    private boolean en_juego = true;
+    private final String newgame = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\newgame.wav";
+    private final String goodbye = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\goodbye.wav";
+
+    @FXML
+    private void playSound(String filePath) {
+        try {
+            File file = new File(filePath);
+            String url = file.toURI().toURL().toString();
+            AudioClip audioClip = Applet.newAudioClip(new java.net.URL(url));
+            audioClip.play();
+        } catch (MalformedURLException e) {
+            System.out.println("Error al cargar el archivo de audio: " + e.getMessage());
+        }
+    }
+
     @FXML
     private Button button_volver;
-    
-     @FXML
+
+    @FXML
     private Button button_de_nuevo;
-    
+
     @FXML
     private void volver() throws IOException {
-    App.setRoot("start");
+        playSound(goodbye);
+        App.setRoot("start");
     }
-    
-     @FXML
+
+    @FXML
     void de_nuevo(ActionEvent event) throws IOException {
-    App.setRoot("x_o");
+        playSound(newgame);
+        App.setRoot("x_o");
     }
-    
+
     @FXML
     private ResourceBundle resources;
 
@@ -50,80 +68,86 @@ public class x_oController {
 
     @FXML
     void click(ActionEvent event) {
-        Button btn =((Button)event.getSource()); 
-        if (!en_juego||btn.getText()!="") return;
-        
-        contador ++;
-        if (contador%2 ==0){
-        currentSymbol = 'O';
-        }else {currentSymbol = 'X';}
-        
-        
-        
+        Button btn = ((Button) event.getSource());
+        if (!en_juego || btn.getText() != "") {
+            return;
+        }
+
+        contador++;
+        if (contador % 2 == 0) {
+            currentSymbol = 'O';
+        } else {
+            currentSymbol = 'X';
+        }
+
         btn.setText(String.valueOf(currentSymbol));
-        
-        int linea_index = GridPane.getRowIndex(btn)== null? 0:GridPane.getRowIndex(btn);
-        int columna_index = GridPane.getColumnIndex(btn)== null? 0:GridPane.getColumnIndex(btn);
+
+        int linea_index = GridPane.getRowIndex(btn) == null ? 0 : GridPane.getRowIndex(btn);
+        int columna_index = GridPane.getColumnIndex(btn) == null ? 0 : GridPane.getColumnIndex(btn);
         System.out.println("linea" + linea_index);
         System.out.println("columna" + columna_index);
-        
-        campo [linea_index][columna_index] = currentSymbol;
-        
-        if (campo[0][0]==campo[0][1] && campo[0][0]==campo[0][2]&& (campo[0][0]=='X'|| campo[0][0]=='O')){
+
+        campo[linea_index][columna_index] = currentSymbol;
+
+        if (campo[0][0] == campo[0][1] && campo[0][0] == campo[0][2] && (campo[0][0] == 'X' || campo[0][0] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[1][0]==campo[1][1] && campo[1][0]==campo[1][2]&& (campo[1][0]=='X'|| campo[1][0]=='O')){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
-            alert.showAndWait(); 
-            en_juego=false;}
-        if (campo[2][0]==campo[2][1] && campo[2][0]==campo[2][2]&& (campo[2][0]=='X'|| campo[2][0]=='O')){
+            en_juego = false;
+        }
+        if (campo[1][0] == campo[1][1] && campo[1][0] == campo[1][2] && (campo[1][0] == 'X' || campo[1][0] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[0][0]==campo[1][0] && campo[0][0]==campo[2][0]&& (campo[0][0]=='X'|| campo[0][0]=='O')){
+            en_juego = false;
+        }
+        if (campo[2][0] == campo[2][1] && campo[2][0] == campo[2][2] && (campo[2][0] == 'X' || campo[2][0] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[0][1]==campo[1][1] && campo[0][1]==campo[2][1]&& (campo[0][1]=='X'|| campo[0][1]=='O')){
+            en_juego = false;
+        }
+        if (campo[0][0] == campo[1][0] && campo[0][0] == campo[2][0] && (campo[0][0] == 'X' || campo[0][0] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[0][2]==campo[1][2] && campo[0][2]==campo[2][2]&& (campo[0][2]=='X'|| campo[0][2]=='O')){
+            en_juego = false;
+        }
+        if (campo[0][1] == campo[1][1] && campo[0][1] == campo[2][1] && (campo[0][1] == 'X' || campo[0][1] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[0][0]==campo[1][1] && campo[0][0]==campo[2][2]&& (campo[0][0]=='X'|| campo[0][0]=='O')){
+            en_juego = false;
+        }
+        if (campo[0][2] == campo[1][2] && campo[0][2] == campo[2][2] && (campo[0][2] == 'X' || campo[0][2] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
-        if (campo[0][2]==campo[1][1] && campo[0][2]==campo[2][0]&& (campo[0][2]=='X'|| campo[0][2]=='O')){
+            en_juego = false;
+        }
+        if (campo[0][0] == campo[1][1] && campo[0][0] == campo[2][2] && (campo[0][0] == 'X' || campo[0][0] == 'O')) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
             alert.showAndWait();
-            en_juego=false;}
+            en_juego = false;
+        }
+        if (campo[0][2] == campo[1][1] && campo[0][2] == campo[2][0] && (campo[0][2] == 'X' || campo[0][2] == 'O')) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Ha ganado " + btn.getText() + "!", ButtonType.OK);
+            alert.showAndWait();
+            en_juego = false;
+        }
 
     }
 
     @FXML
     void initialize() {
-          Alert alert = new Alert(Alert.AlertType.INFORMATION, "Este es el clásico juego de 3 en línea:\n\n" +
-
-"\n- Turnos:\n" +
-"En cada turno, el jugador coloca su símbolo \n"
-                  + "en una casilla vacía del tablero.\n" +
-"\n- Colocación de símbolos:\n" +
-"Los jugadores se turnan colocando sus símbolos\n"
-                  + " en las casillas del tablero.\n" +
-"Solo se puede colocar un símbolo por casilla \n"
-                  + "y no se puede colocar en una casilla ya ocupada.\n" +
-"\n- Línea ganadora:\n" +
-"El primer jugador que coloque tres de sus símbolos \n"
-                  + "en línea recta (horizontal, vertical o diagonal) gana la partida." , ButtonType.OK);
-            alert.showAndWait(); 
-     
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Este es el clásico juego de 3 en línea:\n\n"
+                + "\n- Turnos:\n"
+                + "En cada turno, el jugador coloca su símbolo \n"
+                + "en una casilla vacía del tablero.\n"
+                + "\n- Colocación de símbolos:\n"
+                + "Los jugadores se turnan colocando sus símbolos\n"
+                + " en las casillas del tablero.\n"
+                + "Solo se puede colocar un símbolo por casilla \n"
+                + "y no se puede colocar en una casilla ya ocupada.\n"
+                + "\n- Línea ganadora:\n"
+                + "El primer jugador que coloque tres de sus símbolos \n"
+                + "en línea recta (horizontal, vertical o diagonal) gana la partida.", ButtonType.OK);
+        alert.showAndWait();
 
     }
 
-  
-    
 }

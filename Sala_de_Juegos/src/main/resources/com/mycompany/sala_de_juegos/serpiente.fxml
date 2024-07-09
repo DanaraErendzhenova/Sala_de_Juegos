@@ -18,6 +18,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#newAction" text="Nuevo Juego" />
               <MenuItem mnemonicParsing="false" onAction="#exitAction" text="Al menu" />
+                  <MenuItem mnemonicParsing="false" onAction="#a_resultados" text="Quero guardar mi resultado" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Personalización">
@@ -36,7 +37,7 @@
                <children>
                    <Text fx:id="text" fill="#100a80" layoutX="40.0" layoutY="47.0" textAlignment="CENTER" wrappingWidth="100.0">
                      <font>
-                        <Font name="Berlin Sans FB" size="25"  />
+                        <Font name="Berlin Sans FB" size="25" />
                      </font></Text>
                </children></Pane>
             <Canvas fx:id="canvas" focusTraversable="true" height="400.0" onKeyPressed="#keyHandler" width="400.0">

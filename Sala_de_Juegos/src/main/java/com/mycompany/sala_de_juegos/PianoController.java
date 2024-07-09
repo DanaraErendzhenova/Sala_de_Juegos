@@ -43,7 +43,7 @@ public class PianoController {
 
     @FXML
     private Button button_escuchar_de_nuevo;
-    
+
     @FXML
     private Button button_volver;
 
@@ -81,21 +81,24 @@ public class PianoController {
     private final String sonidoDoMayor = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_piano\\do_mayor.wav";
     private final String correcto = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_piano\\correct.wav";
     private final String falso = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_piano\\error.wav";
-    
+    private final String newgame = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\newgame.wav";
+    private final String goodbye = "C:\\Users\\Puesto 5\\Danara\\GitHub\\Sala_de_Juegos\\Sala_de_Juegos\\src\\main\\resources\\sonidos_numero\\goodbye.wav";
+
     @FXML
     private void volver() throws IOException {
-    App.setRoot("start");
+        playSound(goodbye);
+        App.setRoot("start");
     }
-    
+
     @FXML
     void initialize() {
-        
-         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Adivina la melodía:\n\n" +
-"- Pulsa la tecla \"a jugar\".\n" +
-"- Sonarán tres notas diferentes.\n" +
-"- Pulsa las teclas correspondientes a las notas.\n" +
-"- ¡Adivina cuáles son! " , ButtonType.OK);
-            alert.showAndWait(); 
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Adivina la melodía:\n\n"
+                + "- Pulsa la tecla \"a jugar\".\n"
+                + "- Sonarán tres notas diferentes.\n"
+                + "- Pulsa las teclas correspondientes a las notas.\n"
+                + "- ¡Adivina cuáles son! ", ButtonType.OK);
+        alert.showAndWait();
 
         tecla1.setOnAction(event -> {
             playSound(sonidoDoMenor);
@@ -170,15 +173,15 @@ public class PianoController {
         }
         );
         button_escuchar.setOnAction(event -> playCombinacion());
-        button_escuchar_de_nuevo.setOnAction(event-> {
+        button_escuchar_de_nuevo.setOnAction(event -> {
             for (String sonido : combinacion_correcta) {
                 playSound(sonido);
-                    try {
-                        Thread.sleep(250);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-        }
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         });
     }
 

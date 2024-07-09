@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -43,6 +44,21 @@ public class SerpienteController {
     
     private Timeline timeline;
     
+     @FXML
+    private TextField nombre;
+
+    @FXML
+    private Button set_nombre_button;
+    
+    @FXML
+    void set_nombre(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void a_resultados(ActionEvent event) throws IOException {
+     App.setRoot("guardarSnake");
+    }
     
     @FXML
     private void exitAction(ActionEvent event) throws IOException {
@@ -75,28 +91,34 @@ public class SerpienteController {
     }
     @FXML
     private void keyHandler(KeyEvent e) {
-        if (e.getCode() == KeyCode.RIGHT) {
-            game.snake.setDirection(0);
-        }
-        else if(e.getCode() == KeyCode.UP) {
-            game.snake.setDirection(1);
-        }
-        else if(e.getCode() == KeyCode.LEFT) {
-            game.snake.setDirection(2);
-        }
-        else if(e.getCode() == KeyCode.DOWN) {
-            game.snake.setDirection(3);
+        if (null != e.getCode()) switch (e.getCode()) {
+            case RIGHT:
+                game.snake.setDirection(0);
+                break;
+            case UP:
+                game.snake.setDirection(1);
+                break;
+            case LEFT:
+                game.snake.setDirection(2);
+                break;
+            case DOWN:
+                game.snake.setDirection(3);
+                break;
+            default:
+                break;
         }
     }
     @FXML
 
     public void repaint() {
+        
+        
         Duration duration = Duration.millis(250);
         timeline = new Timeline(new KeyFrame(duration, (ActionEvent event) -> {
             text.setText("Tu resultado es: "+String.valueOf(game.getScore()));
             GraphicsContext context = canvas.getGraphicsContext2D();
             if ( !game.isGameOver() ) {
-                context.setFill(Color.AQUA);
+                context.setFill(Color.GREY);
                 context.fillRect(0, 0, 400, 400);
                 
                 game.snake.getSnake().stream().forEach((part) -> {
@@ -107,20 +129,26 @@ public class SerpienteController {
                 context.fillRect(game.food.getX(), game.food.getY(), SnakePart.getWidth(), SnakePart.getHeight());
             }
             else {
-                context.setFill(Color.AQUA);
+                context.setFill(Color.GREY);
                 context.fillRect(0, 0, 400, 400);
                 context.setFill(Color.BLACK);
                 context.setFont(new Font(24));
                 context.setTextAlign(TextAlignment.CENTER);
                 context.fillText("Game Over!", 200, 200);
+                
+                
                 timeline.stop();
+                
+                
+          
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
  @FXML
-    void initialize() {
+    void initialize()  {
+        
           Alert alert = new Alert(Alert.AlertType.INFORMATION, "Utiliza las flechas del teclado para mover la serpiente \n"
                   + "y hacerla crecer al comer manzanas.\n\n" +
                     "Evita chocar contra las paredes o \n"
@@ -128,9 +156,14 @@ public class SerpienteController {
                     "Gana puntos al comer manzanas y aumenta \n"
                   + "tu dificultad al hacer crecer a la serpiente. " , ButtonType.OK);
             alert.showAndWait(); 
+            
+           
      
 
     }
+   
+  
+    
     }
     
     

@@ -5,4 +5,5 @@ module com.mycompany.sala_de_juegos {
 
     opens com.mycompany.sala_de_juegos to javafx.fxml;
     exports com.mycompany.sala_de_juegos;
+    requires javafx.graphicsEmpty;
 }
